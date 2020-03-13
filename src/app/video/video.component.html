@@ -1,3 +1,6 @@
 <div class="d-flex justify-content-center align-items-center p-5">
-  <video width="50%" src="{{videoSrc}}" controls></video>
+  <video *ngIf="this.validVideo" #video width="50%" src="{{videoSrc}}" controls (timeupdate)="updateTimeStamp()" (error)="handleError()"></video>
+  <div *ngIf="!this.validVideo">
+    Id provided is not valid to load the video
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, Input, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-video',
@@ -7,12 +7,26 @@ import {Component, Inject, OnInit} from '@angular/core';
 })
 export class VideoComponent implements OnInit {
   videoSrc = '';
+  timeStamp = {};
+  @Input() id: string;
+  @ViewChild('video') videoPlayerRef: ElementRef;
+  validVideo = true;
 
   constructor(@Inject('BASE_API_URL') private baseUrl: string) {
   }
 
   ngOnInit(): void {
-    this.videoSrc = this.baseUrl + '4d79041e-f25f-421d-9e5f-3462459b9934.mp4';
+    this.videoSrc = this.baseUrl + this.id + '.mp4';
+
   }
 
+  updateTimeStamp() {
+    this.timeStamp = this.videoPlayerRef.nativeElement.currentTime;
+    console.log(this.timeStamp);
+  }
+
+  handleError() {
+    this.validVideo = false;
+    console.log('Video not found');
+  }
 }
