@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'video-transcript';
+  id = '';
+
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      console.log(Object.keys(params));
+      if (Object.keys(params).length === 0 || Object.keys(params)[0] !== 'id') {
+        console.log('no params available');
+      } else {
+        this.id = params.id;
+      }
+    });
+  }
+
 }

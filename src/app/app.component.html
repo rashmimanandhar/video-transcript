@@ -1,2 +1,8 @@
-<app-video></app-video>
-<app-transcript></app-transcript>
+<div class="card" *ngIf="id !== ''">
+  <app-video [id]="id"></app-video>
+  <app-transcript [id]="id"></app-transcript>
+</div>
+
+<div *ngIf="id === ''">
+  Id is not provided
+</div>
