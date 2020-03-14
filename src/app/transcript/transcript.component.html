@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-start flex-column transcript-container">
   <div *ngFor="let t of transcript; let i = index">
-    <div *ngIf="i === 0 || transcript[i-1].speaker !== t.speaker" class="speaker-name">
+    <div *ngIf="i === 0 || transcript[i-1].speaker !== t.speaker" class="speaker-name" [style.color]="getSpeakerColor(t.speaker)" >
       {{t.speaker}}
     </div>
     <span class="speech">

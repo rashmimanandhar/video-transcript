@@ -7,7 +7,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'video-transcript';
+  title = 'Moment from meeting with Two Pillars';
   id = '';
 
   constructor(private route: ActivatedRoute) {
