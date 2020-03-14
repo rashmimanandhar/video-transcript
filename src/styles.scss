@@ -6,3 +6,15 @@ html, body{
   align-items: center;
   //height: 100vh;
 }
+@media (min-width: 375px) and (max-width: 768px) {
+  .center-box {
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .center-box{
+    margin: 0 !important;
+    padding: 1em !important;
+  }
+}
