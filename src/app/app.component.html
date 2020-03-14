@@ -1,8 +1,13 @@
-<div class="card" *ngIf="id !== ''">
-  <app-video [id]="id"></app-video>
-  <app-transcript [id]="id"></app-transcript>
-</div>
 
-<div *ngIf="id === ''">
-  Id is not provided
+<div class="center-box flex-column">
+  <h2 class="d-flex align-self-center meeting-title" >Moment from meeting with Two Pillars</h2>
+  <div class="" *ngIf="id !== ''">
+    <app-video [id]="id"></app-video>
+    <app-transcript [id]="id"></app-transcript>
+  </div>
+
+  <div *ngIf="id === ''">
+    Id is not provided
+  </div>
 </div>
+<app-footer class="d-flex justify-content-center p-3"></app-footer>
