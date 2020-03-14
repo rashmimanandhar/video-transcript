@@ -1,5 +1,9 @@
 <div class="d-flex justify-content-center align-items-center flex-column">
-  <div *ngFor="let t of transcript">
-    {{t['snippet']}}
+  <div *ngFor="let t of transcript; let i = index">
+    <div *ngIf="i === 0 || transcript[i-1].speaker !== t.speaker">
+      {{t.speaker}}
+    </div>
+    {{t.snippet}}
+
   </div>
 </div>

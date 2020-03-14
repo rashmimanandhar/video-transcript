@@ -1,5 +1,6 @@
-import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {TranscriptService} from './transcript.service';
+import {Transcript} from './transcript';
 
 @Component({
   selector: 'app-transcript',
@@ -7,14 +8,19 @@ import {TranscriptService} from './transcript.service';
   styleUrls: ['./transcript.component.scss']
 })
 export class TranscriptComponent implements OnInit {
-  transcript = {};
+  transcript: Array<Transcript> = [];
+  @Input() id: string;
 
   constructor(private transcriptService: TranscriptService, @Inject('BASE_API_URL') private baseUrl: string) {
   }
 
   ngOnInit(): void {
-    this.transcriptService.getTranscript('4d79041e-f25f-421d-9e5f-3462459b9934').subscribe(transcript => {
-      this.transcript =  transcript;
+    this.transcriptService.getTranscript(this.id).subscribe(transcript => {
+      this.transcript = transcript.sort((a, b) => {
+        return a.time - b.time;
+      });
+
+
     });
   }
 

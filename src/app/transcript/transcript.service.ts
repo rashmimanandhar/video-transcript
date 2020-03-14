@@ -1,5 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Transcript} from './transcript';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class TranscriptService {
   }
 
   getTranscript(id) {
-    return this.http.get(this.baseUrl + id + '.json');
+    return this.http.get<Array<Transcript>>(this.baseUrl + id + '.json');
   }
 }
