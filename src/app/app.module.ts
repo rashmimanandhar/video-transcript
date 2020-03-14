@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TranscriptComponent } from './transcript/transcript.component';
 import { VideoComponent } from './video/video.component';
 import { HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 
 export function getAPIBaseUrl() {
@@ -16,7 +17,8 @@ export function getAPIBaseUrl() {
   declarations: [
     AppComponent,
     TranscriptComponent,
-    VideoComponent
+    VideoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
