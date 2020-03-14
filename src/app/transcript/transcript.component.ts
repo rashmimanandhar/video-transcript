@@ -10,6 +10,7 @@ import {Transcript} from './transcript';
 export class TranscriptComponent implements OnInit {
   transcript: Array<Transcript> = [];
   @Input() id: string;
+  @Input() currentTimeStamp: number;
   speakers;
   speakerColors: Array<string> = ['#ee6eff', '#00a7d1'];
 

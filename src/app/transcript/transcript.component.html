@@ -1,11 +1,21 @@
 <div class="d-flex justify-content-start flex-column transcript-container">
   <div *ngFor="let t of transcript; let i = index">
-    <div *ngIf="i === 0 || transcript[i-1].speaker !== t.speaker" class="speaker-name" [style.color]="getSpeakerColor(t.speaker)" >
+
+    <div *ngIf="i === 0 || transcript[i-1].speaker !== t.speaker" class="speaker-name"
+         [style.color]="getSpeakerColor(t.speaker)">
       {{t.speaker}}
     </div>
+    <div class="d-flex">
+      <div class="d-flex align-items-center"
+        *ngIf="(i === 0 && currentTimeStamp < t.time) || ((i>0 && currentTimeStamp > transcript[i-1].time) && (i < transcript.length && currentTimeStamp < transcript[i+1].time) && currentTimeStamp < t.time)">
+        <span class="current-timestamp"></span>
+
+      </div>
     <span class="speech">
       {{t.snippet}}
+
     </span>
 
+    </div>
   </div>
 </div>

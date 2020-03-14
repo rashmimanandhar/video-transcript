@@ -9,3 +9,11 @@
   font-size: 1.625rem;
   text-align: center;
 }
+
+.main-container{
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 7em; /* height of your footer */
+}
