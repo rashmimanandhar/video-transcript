@@ -19,8 +19,4 @@ export class AppComponent {
       }
     });
   }
-
-  receiveTimeStamp($event: number) {
-    this.timeStamp = $event;
-  }
 }

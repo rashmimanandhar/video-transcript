@@ -1,4 +1,5 @@
 import {Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {VideoService} from './video.service';
 
 @Component({
   selector: 'app-video',
@@ -9,11 +10,10 @@ export class VideoComponent implements OnInit {
   videoSrc = '';
   timeStamp = 0;
   @Input() id: string;
-  @Output() timeStampEvent = new EventEmitter<number>();
   @ViewChild('video') videoPlayerRef: ElementRef;
   validVideo = true;
 
-  constructor(@Inject('BASE_API_URL') private baseUrl: string) {
+  constructor(@Inject('BASE_API_URL') private baseUrl: string, private videoService: VideoService) {
   }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class VideoComponent implements OnInit {
 
   updateTimeStamp() {
     this.timeStamp = this.videoPlayerRef.nativeElement.currentTime;
-    this.timeStampEvent.emit(this.timeStamp);
+    this.videoService.timeStampUpdated.emit(this.timeStamp);
   }
 
   handleError() {
