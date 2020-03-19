@@ -1,0 +1,12 @@
+<div class="center-box">
+
+  <div class="d-flex flex-column" *ngIf="id !== ''">
+    <h2 class="d-flex align-self-center meeting-title">{{title}}</h2>
+    <app-video [id]="id" ></app-video>
+    <app-transcript [id]="id"></app-transcript>
+  </div>
+
+  <div *ngIf="id === ''">
+    Id is not provided
+  </div>
+</div>
